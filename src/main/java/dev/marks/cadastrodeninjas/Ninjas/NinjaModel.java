@@ -1,6 +1,6 @@
 package dev.marks.cadastrodeninjas.Ninjas;
 
-import dev.marks.cadastrodeninjas.Missoes.Missoes;
+import dev.marks.cadastrodeninjas.Missoes.MissoesModel;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -15,7 +15,10 @@ public class NinjaModel {
     private String nome;
     private String email;
     private int idade;
-    private List<Missoes> missoes;
+
+    @ManyToOne
+    @JoinColumn(name = "missoes_id") // Foreign Key ou chave estrangeira
+    private MissoesModel missoes;
 
     public NinjaModel() {
     }
